@@ -1,5 +1,7 @@
 .App {
   text-align: center;
+  font-family: Cascadia Code;
+  font-size: 50px;
 }
 
 .App-logo {
