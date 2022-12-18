@@ -17,6 +17,11 @@
   font-size: 20px;
 }
 
+.sidebar_font{
+  font-family: Cascadia Code;
+  font-size: 20px;
+}
+
 .App-logo {
   height: 40vmin;
   pointer-events: none;
