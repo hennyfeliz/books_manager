@@ -24,6 +24,12 @@ namespace Books_Manager_WebApi.Controllers
             return await context.Books.ToListAsync();
         }
 
+        /**
+         * 
+         * PORFA AGREGAR METODO DE BUSQUEDA POR ID
+         * 
+         */
+
         [HttpPost]
         public async Task<ActionResult> BookPost(Book book)
         {
@@ -38,7 +44,7 @@ namespace Books_Manager_WebApi.Controllers
             return Ok();
         }
 
-        [HttpPut]
+        [HttpPut] // arreglar porfa xd, agregar ID por parametro
         public async Task<ActionResult> bookPut(Book book)
         {
             var exists = await context.Books.AnyAsync(x => x.Id == book.Id);
