@@ -2,6 +2,8 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using AutoMapper;
+using Books_Manager_WebApi.DTOs;
 using Books_Manager_WebApi.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -9,29 +11,45 @@ using Microsoft.EntityFrameworkCore;
 namespace Books_Manager_WebApi.Controllers
 {
     [ApiController]
-    [Route("api/genero")]
+    [Route("api/generos")]
     public class GeneroController : ControllerBase
     {
         private readonly BooksContext context;
-        public GeneroController(BooksContext context)
+        private readonly IMapper mapper;
+        public GeneroController(BooksContext context, IMapper mapper)
         {
+            this.mapper = mapper;
             this.context = context;
         }
 
         [HttpGet]
-        public async Task<ActionResult<List<Genero>>> GeneroGet()
+        public async Task<ActionResult<List<GeneroDTO>>> GeneroGet()
         {
-            return await context.Generos.ToListAsync();
+            var generos = await context.Generos.ToListAsync();
+            return mapper.Map<List<GeneroDTO>>(generos);
         }
 
-        [HttpPost]
-        public async Task<ActionResult> generoPost(Genero genero)
+        [HttpGet("{nombre}")]
+        public async Task<ActionResult<List<GeneroDTO>>> GetGeneroName(string nombre)
         {
-            var exists = await context.Generos.AnyAsync(x => x.Id == genero.Id);
-            if (!exists)
-            {
-                return BadRequest();
-            }
+            var generos = await context.Generos
+                .Where(generoBD => generoBD.Nombre.Contains(nombre)).ToListAsync();
+
+            return mapper.Map<List<GeneroDTO>>(generos);
+        }
+
+        [HttpGet("{id:int}")]
+        public async Task<ActionResult<GeneroDTO>> GetGeneroId(int id)
+        {
+            var genero = await context.Generos.FirstOrDefaultAsync(generoBD => generoBD.Id == id);
+            return mapper.Map<GeneroDTO>(genero);
+        }
+
+
+        [HttpPost]
+        public async Task<ActionResult> generoPost(GeneroCreateDTO generoDTO)
+        {
+            var genero = mapper.Map<Genero>(generoDTO);
 
             context.Add(genero);
             await context.SaveChangesAsync();

@@ -23,10 +23,30 @@ namespace Books_Manager_WebApi.Controllers
         }
 
         [HttpGet]
-        public async Task<ActionResult<List<AutorDto>>> GetAutores()
+        public async Task<ActionResult<List<AutorDTO>>> GetAutores()
         {
-            var autor = await context.Autores.ToListAsync();
-            return mapper.Map<List<AutorDto>>(autor);
+            var autores = await context.Autores.ToListAsync();
+            return mapper.Map<List<AutorDTO>>(autores);
+        }
+
+        [HttpGet("{nombre}")]
+        public async Task<ActionResult<List<AutorDTO>>> GetAutorName (string nombre)
+        {
+            var autores = await context.Autores.Where(autorBD => autorBD.Nombre.Contains(nombre)).ToListAsync();
+            return mapper.Map<List<AutorDTO>>(autores);
+        }
+
+        [HttpGet("{id:int}")]
+        public async Task<ActionResult<AutorDTO>> GetAutorId(int id)
+        {
+            var exists = await context.Autores.AnyAsync(autorBD => autorBD.Id == id);
+            if(!exists)
+            {
+                return NotFound();
+            }
+
+            var autor = context.Autores.FirstOrDefault(autorBD => autorBD.Id == id);
+            return mapper.Map<AutorDTO>(autor);
         }
 
         [HttpPost]
@@ -45,7 +65,7 @@ namespace Books_Manager_WebApi.Controllers
             var existe = await context.Autores.AnyAsync(x => x.Id == autor.Id);
             if(!existe)
             {
-                return BadRequest();
+                return NotFound();
             }
 
             context.Update(autor);
