@@ -2,6 +2,26 @@ create database books_manager;
 
 use books_manager;
 
+create table usuario_book(
+	id int auto_increment,
+    username varchar(20),
+	contrasenia varchar(20),
+    fecha_creacion date,
+    profile_icon blob,
+    profile_icon_path varchar(40),
+    primary key(id)
+);
+
+create table comentario(
+	id int auto_increment,
+    usuario int,
+    fecha date,
+    book int,
+    primary key(id),
+    foreign key(usuario) references usuario(id),
+    foreign key(book) references book(id)
+);
+
 create table genero(
 	id int auto_increment,
     nombre varchar(20),
@@ -74,3 +94,28 @@ insert into book(titulo, descripcion, fecha_lanzamiento, cantidad_paginas, canti
 ("EL SEGUNDO SEXO", "El feminismo de segunda ola empezó con un ensayo del que aún tenemos mucho que aprender.", "1905-05-01", 952, 591, 1, 4, 230.00, null, null),
 ("CIEN AÑOS DE SOLEDAD", "Todo lo que necesitas saber sobre la cultura y la historia espiritual de Latinoamérica está contenido en este premio Nobel.", "1969-05-12", 961, 491, 2, 5, 210.00, null, null);
 
+insert into usuario_book(username, contrasenia, fecha_creacion, profile_icon, profile_icon_path) values
+("dea291", "12345", "2001-12-12", null, null),
+("kolla2", "12345", "2001-12-12", null, null),
+("morr2", "12345", "2001-12-12", null, null),
+("momo19", "12345", "2001-12-12", null, null),
+("101kill", "12345", "2001-12-12", null, null),
+("reader21", "12345", "2001-12-12", null, null);
+
+select * from book;
+
+insert into comentario(usuario, fecha, book) values
+(1, "2001-12-12", 19),
+(1, "2001-12-12", 20),
+(2, "2001-12-12", 21),
+(2, "2001-12-12", 23),
+(2, "2001-12-12", 23),
+(2, "2001-12-12", 25),
+(2, "2001-12-12", 23),
+(3, "2001-12-12", 19),
+(3, "2001-12-12", 34),
+(3, "2001-12-12", 34);
+
+
+
+select * from book;
