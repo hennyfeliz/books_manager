@@ -1,8 +1,16 @@
 import "./SideBarStyles.css";
 import { sideBarElements } from "./SideBarElementsTest";
 import { Link } from "react-router-dom";
+import { useState } from "react";
+import { Container } from "react-bootstrap";
 
 export const SideBarComponent = () => {
+  const [navbarOpen, setNavbarOpen] = useState(false);
+
+  const handleToggle = () => {
+    setNavbarOpen(!navbarOpen);
+  };
+
   return (
     <>
       <nav
@@ -10,6 +18,12 @@ export const SideBarComponent = () => {
         class="collapse d-lg-block sidebar collapse bg-white"
       >
         <div class="position-sticky">
+          <Container>
+          <button className="btn btn-primary w-50" onClick={handleToggle}>
+            {navbarOpen ? "Close" : "Open"}
+          </button>
+          </Container>
+
           <div class="list-group list-group-flush mx-3 mt-4">
             {sideBarElements.map((element) => {
               return (
@@ -29,4 +43,3 @@ export const SideBarComponent = () => {
     </>
   );
 };
-

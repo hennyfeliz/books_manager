@@ -8,8 +8,10 @@ import { SideBarComponent } from "./Components/SideBar/SideBarComponent";
 function App() {
   return (
     <>
+      <Container>
       <NavBarComponent />
-        <SideBarComponent />
+      </Container>
+      <SideBarComponent />
       <div className="App">
         <div className="App mt-3 border 1px solid red">
           <Container>
