@@ -4,26 +4,29 @@ import { Container, Button } from "react-bootstrap";
 import { NavBarComponent } from "./Components/NavBar/NarBarComponent";
 import { FooterComponent } from "./Components/Footer/FooterComponent";
 import { SideBarComponent } from "./Components/SideBar/SideBarComponent";
+import { BodyPrincipalComponent } from "./Components/Body/BodyPrincipalComponent";
+import { BrowserRouter } from "react-router-dom";
 
 function App() {
   return (
     <>
-      <Container>
-      <NavBarComponent />
-      </Container>
-      
-      <div className="App">
-        <div className="App mt-3 border 1px solid red">
+      <BrowserRouter>
+        <Container>
+          <NavBarComponent />
+        </Container>
+
+        <div className="App">
+          <div className="App mt-3 border 1px solid red">
+            <Container>
+              <BodyPrincipalComponent />
+            </Container>
+          </div>
           <Container>
-            <p className="m-auto p-1">Books manager</p>
-            <p>-{">"} esto se va a quitar xd</p>
+            <Button className="mt-5 w-75">Ir al menu</Button>
           </Container>
         </div>
-        <Container>
-          <Button className="mt-5 w-75">Ir al menu</Button>
-        </Container>
-      </div>
-      <FooterComponent />
+        <FooterComponent />
+      </BrowserRouter>
     </>
   );
 }
