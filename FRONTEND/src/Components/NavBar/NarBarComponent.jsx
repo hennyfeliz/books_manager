@@ -9,6 +9,7 @@ import {
 import { useState } from "react";
 import hamburgerIcon from "./../resources/icons/hamburger.png";
 import { SideBarComponent } from "../SideBar/SideBarComponent";
+import { Link } from "react-router-dom";
 
 export const NavBarComponent = () => {
   const [navbarOpen, setNavbarOpen] = useState(false);
@@ -39,21 +40,54 @@ export const NavBarComponent = () => {
                   style={{ maxHeight: "100px" }}
                   navbarScroll
                 >
-                  <Nav.Link href="#action1">Home</Nav.Link>
-                  <Nav.Link href="#action2">Link</Nav.Link>
-                  <NavDropdown title="Link" id="navbarScrollingDropdown">
-                    <NavDropdown.Item href="#action3">Action</NavDropdown.Item>
+                  {/* BOOKS */}
+                  <NavDropdown title="Books" id="navbarScrollingDropdown">
+                    <Link to={"/books/list"}>
+                      <NavDropdown.Item href="#action4">
+                        List all
+                      </NavDropdown.Item>
+                    </Link>
                     <NavDropdown.Item href="#action4">
-                      Another action
+                      Create one
                     </NavDropdown.Item>
-                    <NavDropdown.Divider />
-                    <NavDropdown.Item href="#action5">
-                      Something else here
+                    <NavDropdown.Item href="#action4">
+                      Update some
+                    </NavDropdown.Item>
+                    <NavDropdown.Item href="#action4">
+                      Delete one
+                    </NavDropdown.Item>
+                    {/* <NavDropdown.Divider /> */}
+                  </NavDropdown>
+                  {/* AUTHRS */}
+                  <NavDropdown title="Authors" id="navbarScrollingDropdown">
+                    <NavDropdown.Item href="#action4">
+                      List all
+                    </NavDropdown.Item>
+                    <NavDropdown.Item href="#action4">
+                      Create one
+                    </NavDropdown.Item>
+                    <NavDropdown.Item href="#action4">
+                      Update some
+                    </NavDropdown.Item>
+                    <NavDropdown.Item href="#action4">
+                      Delete one
                     </NavDropdown.Item>
                   </NavDropdown>
-                  <Nav.Link href="#" disabled>
-                    Link
-                  </Nav.Link>
+                  {/* GENDERS */}
+                  <NavDropdown title="Genders" id="navbarScrollingDropdown">
+                    <NavDropdown.Item href="#action4">
+                      List all
+                    </NavDropdown.Item>
+                    <NavDropdown.Item href="#action4">
+                      Create one
+                    </NavDropdown.Item>
+                    <NavDropdown.Item href="#action4">
+                      Update some
+                    </NavDropdown.Item>
+                    <NavDropdown.Item href="#action4">
+                      Delete one
+                    </NavDropdown.Item>
+                  </NavDropdown>
                 </Nav>
                 <Form className="d-flex">
                   <Form.Control
@@ -68,7 +102,7 @@ export const NavBarComponent = () => {
             </Container>
           </Navbar>
         </Container>
-        <SideBarComponent display={navbarOpen}/>
+        <SideBarComponent display={navbarOpen} />
       </div>
     </>
   );

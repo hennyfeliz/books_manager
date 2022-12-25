@@ -4,6 +4,10 @@
   font-size: 50px;
 }
 
+Link{
+  text-decoration: none;
+}
+
 .hamburger-icon{
   color: red;
   height: 1.4em;
