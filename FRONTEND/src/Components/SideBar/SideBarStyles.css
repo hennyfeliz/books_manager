@@ -7,6 +7,11 @@ body {
   }
 }
 
+.book-icon{
+  color: red;
+  height: 6.0em;
+}
+
 /* Sidebar */
 .sidebar {
   margin-top: 89px;
