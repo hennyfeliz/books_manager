@@ -4,6 +4,11 @@
   font-size: 50px;
 }
 
+.hamburger-icon{
+  color: red;
+  height: 1.4em;
+}
+
 .footer_component{
   position:fixed;
   bottom:0;

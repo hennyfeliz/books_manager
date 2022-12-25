@@ -11,7 +11,7 @@ function App() {
       <Container>
       <NavBarComponent />
       </Container>
-      <SideBarComponent />
+      
       <div className="App">
         <div className="App mt-3 border 1px solid red">
           <Container>
