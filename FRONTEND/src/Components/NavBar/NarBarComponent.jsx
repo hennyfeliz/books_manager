@@ -10,6 +10,7 @@ import { useState } from "react";
 import hamburgerIcon from "./../resources/icons/hamburger.png";
 import { SideBarComponent } from "../SideBar/SideBarComponent";
 import { Link } from "react-router-dom";
+import { elements } from "./NarBarElements";
 
 export const NavBarComponent = () => {
   const [navbarOpen, setNavbarOpen] = useState(false);
@@ -40,54 +41,52 @@ export const NavBarComponent = () => {
                   style={{ maxHeight: "100px" }}
                   navbarScroll
                 >
-                  {/* BOOKS */}
-                  <NavDropdown title="Books" id="navbarScrollingDropdown">
-                    <Link to={"/books/list"}>
-                      <NavDropdown.Item href="#action4">
-                        List all
-                      </NavDropdown.Item>
-                    </Link>
-                    <NavDropdown.Item href="#action4">
-                      Create one
-                    </NavDropdown.Item>
-                    <NavDropdown.Item href="#action4">
-                      Update some
-                    </NavDropdown.Item>
-                    <NavDropdown.Item href="#action4">
-                      Delete one
-                    </NavDropdown.Item>
-                    {/* <NavDropdown.Divider /> */}
-                  </NavDropdown>
-                  {/* AUTHRS */}
-                  <NavDropdown title="Authors" id="navbarScrollingDropdown">
-                    <NavDropdown.Item href="#action4">
-                      List all
-                    </NavDropdown.Item>
-                    <NavDropdown.Item href="#action4">
-                      Create one
-                    </NavDropdown.Item>
-                    <NavDropdown.Item href="#action4">
-                      Update some
-                    </NavDropdown.Item>
-                    <NavDropdown.Item href="#action4">
-                      Delete one
-                    </NavDropdown.Item>
-                  </NavDropdown>
-                  {/* GENDERS */}
-                  <NavDropdown title="Genders" id="navbarScrollingDropdown">
-                    <NavDropdown.Item href="#action4">
-                      List all
-                    </NavDropdown.Item>
-                    <NavDropdown.Item href="#action4">
-                      Create one
-                    </NavDropdown.Item>
-                    <NavDropdown.Item href="#action4">
-                      Update some
-                    </NavDropdown.Item>
-                    <NavDropdown.Item href="#action4">
-                      Delete one
-                    </NavDropdown.Item>
-                  </NavDropdown>
+                  {/* ALL COMPONENTS */}
+
+                  {elements.map((element) => {
+                    return (
+                      <>
+                        <NavDropdown
+                          title={element.name}
+                          id="navbarScrollingDropdown"
+                        >
+                          <Link
+                            to={element.listRoute}
+                            className="text-decoration-none"
+                          >
+                            <NavDropdown.Item href="#action4">
+                              List all
+                            </NavDropdown.Item>
+                          </Link>
+                          <Link
+                            to={element.createRoute}
+                            className="text-decoration-none"
+                          >
+                            <NavDropdown.Item href="#action4">
+                              Create one
+                            </NavDropdown.Item>
+                          </Link>
+                          <Link
+                            to={element.updateRoute}
+                            className="text-decoration-none"
+                          >
+                            <NavDropdown.Item href="#action4">
+                              Update some
+                            </NavDropdown.Item>
+                          </Link>
+                          <Link
+                            to={element.deleteRoute}
+                            className="text-decoration-none"
+                          >
+                            <NavDropdown.Item href="#action4">
+                              Delete one
+                            </NavDropdown.Item>
+                          </Link>
+                          {/* <NavDropdown.Divider /> */}
+                        </NavDropdown>
+                      </>
+                    );
+                  })}
                 </Nav>
                 <Form className="d-flex">
                   <Form.Control
@@ -104,6 +103,37 @@ export const NavBarComponent = () => {
         </Container>
         <SideBarComponent display={navbarOpen} />
       </div>
+    </>
+  );
+};
+
+const anotherNavBarComponent = () => {
+  return (
+    <>
+      {/* BOOKS */}
+      <NavDropdown title="Books" id="navbarScrollingDropdown">
+        <Link to={"/books/list"}>
+          <NavDropdown.Item href="#action4">List all</NavDropdown.Item>
+        </Link>
+        <NavDropdown.Item href="#action4">Create one</NavDropdown.Item>
+        <NavDropdown.Item href="#action4">Update some</NavDropdown.Item>
+        <NavDropdown.Item href="#action4">Delete one</NavDropdown.Item>
+        {/* <NavDropdown.Divider /> */}
+      </NavDropdown>
+      {/* AUTHRS */}
+      <NavDropdown title="Authors" id="navbarScrollingDropdown">
+        <NavDropdown.Item href="#action4">List all</NavDropdown.Item>
+        <NavDropdown.Item href="#action4">Create one</NavDropdown.Item>
+        <NavDropdown.Item href="#action4">Update some</NavDropdown.Item>
+        <NavDropdown.Item href="#action4">Delete one</NavDropdown.Item>
+      </NavDropdown>
+      {/* GENDERS */}
+      <NavDropdown title="Genders" id="navbarScrollingDropdown">
+        <NavDropdown.Item href="#action4">List all</NavDropdown.Item>
+        <NavDropdown.Item href="#action4">Create one</NavDropdown.Item>
+        <NavDropdown.Item href="#action4">Update some</NavDropdown.Item>
+        <NavDropdown.Item href="#action4">Delete one</NavDropdown.Item>
+      </NavDropdown>
     </>
   );
 };
