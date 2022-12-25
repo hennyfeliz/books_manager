@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Books_Manager_WebApi.DTOs
 {
-    public class AutorDto
+    public class AutorDTO
     {
         public int Id { get; set; }
         public string Nombre { get; set; }

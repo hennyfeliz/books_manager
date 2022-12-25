@@ -12,16 +12,6 @@ create table usuario_book(
     primary key(id)
 );
 
-create table comentario(
-	id int auto_increment,
-    usuario int,
-    fecha date,
-    book int,
-    primary key(id),
-    foreign key(usuario) references usuario(id),
-    foreign key(book) references book(id)
-);
-
 create table genero(
 	id int auto_increment,
     nombre varchar(20),
@@ -54,6 +44,18 @@ create table book(
     foreign key(autor) references autor(id),
     foreign key(genero) references genero(id)
 );
+
+create table comentario(
+	id int auto_increment,
+    usuario int,
+    contenido varchar(250),
+    fecha date,
+    book int,
+    primary key(id),
+    foreign key(usuario) references usuario_book(id),
+    foreign key(book) references book(id)
+);
+
 
 insert into genero(nombre) values
 ("romance"),
@@ -104,18 +106,14 @@ insert into usuario_book(username, contrasenia, fecha_creacion, profile_icon, pr
 
 select * from book;
 
-insert into comentario(usuario, fecha, book) values
-(1, "2001-12-12", 19),
-(1, "2001-12-12", 20),
-(2, "2001-12-12", 21),
-(2, "2001-12-12", 23),
-(2, "2001-12-12", 23),
-(2, "2001-12-12", 25),
-(2, "2001-12-12", 23),
-(3, "2001-12-12", 19),
-(3, "2001-12-12", 34),
-(3, "2001-12-12", 34);
-
-
-
-select * from book;
+insert into comentario(usuario, contenido ,fecha, book) values
+(1, "Excelente libro", "2001-12-12", 18),
+(1, "Buen libro", "2001-12-12", 4),
+(2, "Me encanta", "2001-12-12", 8),
+(2, "El autor es un genio", "2001-12-12", 4),
+(2, "Excelente libro", "2001-12-12", 12),
+(2, "Buenisimo", "2001-12-12", 7),
+(2, "Que bella obra de arte", "2001-12-12", 18),
+(3, "Me encanta", "2001-12-12", 1),
+(3, "Buen libro", "2001-12-12", 17),
+(3, "Excelente", "2001-12-12", 5);

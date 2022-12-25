@@ -12,8 +12,14 @@ namespace Books_Manager_WebApi.Utilitis
     {
         public AutoMapper()
         {
-            CreateMap<Autor, AutorDto>();
+            CreateMap<Autor, AutorDTO>();
             CreateMap<AutorCreateDTO, Autor>();
+            CreateMap<Book, BookDTO>();
+            CreateMap<BookCreateDTO, Book>();
+            CreateMap<Genero, GeneroDTO>();
+            CreateMap<GeneroCreateDTO, Genero>();
+            CreateMap<Comentario, ComentarioDTO>();
+            CreateMap<ComentarioCreateDTO, Comentario>();
         }
     }
 }

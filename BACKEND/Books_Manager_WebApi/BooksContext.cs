@@ -17,6 +17,7 @@ namespace Books_Manager_WebApi
         public virtual DbSet<Autor> Autores { get; set; }
         public virtual DbSet<Book> Books { get; set; }
         public virtual DbSet<Genero> Generos { get; set; }
+        public virtual DbSet<Comentario> Comentarios { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -107,6 +108,31 @@ namespace Books_Manager_WebApi
                 entity.Property(e => e.Nombre)
                     .HasMaxLength(20)
                     .HasColumnName("nombre");
+            });
+
+            modelBuilder.Entity<Comentario>(entity =>
+            {
+                entity.ToTable("comentario");
+
+                entity.Property(e => e.Id).HasColumnName("id");
+
+                entity.Property(e => e.Contenido).HasColumnName("contenido");
+
+                entity.Property(e => e.UsuarioId).HasColumnName("usuario");
+
+                entity.Property(e => e.Fecha).HasColumnName("fecha");
+
+                entity.Property(e => e.BookId).HasColumnName("book");
+
+                entity.HasOne(e => e.Usuario)
+                    .WithMany(e => e.Comentario)
+                    .HasForeignKey(e => e.UsuarioId)
+                    .HasConstraintName("FK_UsuarioId");
+
+                entity.HasOne(e => e.Book)
+                    .WithMany(e => e.Comentario)
+                    .HasForeignKey(e => e.BookId)
+                    .HasConstraintName("FK_BookId");   
             });
 
             OnModelCreatingPartial(modelBuilder);
