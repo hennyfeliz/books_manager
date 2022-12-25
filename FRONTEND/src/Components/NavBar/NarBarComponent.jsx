@@ -31,9 +31,11 @@ export const NavBarComponent = () => {
               className="hamburger-icon"
             />
             <Container fluid>
-              <Navbar.Brand href="#" className="display-2">
-                Books manager
-              </Navbar.Brand>
+              <Link to={"/"} className="text-decoration-none">
+                <Navbar.Brand href="#" className="display-2">
+                  Books manager
+                </Navbar.Brand>
+              </Link>
               <Navbar.Toggle aria-controls="navbarScroll" />
               <Navbar.Collapse id="navbarScroll">
                 <Nav
