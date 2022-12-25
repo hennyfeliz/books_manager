@@ -6,6 +6,7 @@ import { FooterComponent } from "./Components/Footer/FooterComponent";
 import { SideBarComponent } from "./Components/SideBar/SideBarComponent";
 import { BodyPrincipalComponent } from "./Components/Body/BodyPrincipalComponent";
 import { BrowserRouter } from "react-router-dom";
+import { PrincipalComponent } from "./Components/PrincipalComponents/PrincipalComponent";
 
 function App() {
   return (
@@ -25,6 +26,9 @@ function App() {
             <Button className="mt-5 w-75">Ir al menu</Button>
           </Container>
         </div>
+        <Container>
+          <PrincipalComponent />
+        </Container>
         <FooterComponent />
       </BrowserRouter>
     </>
