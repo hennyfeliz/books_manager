@@ -6,7 +6,13 @@ export const BookList = () => {
   const [books, setBooks] = useState([]);
 
   useEffect(() => {
+    axios.get(``)
+    .then((response) => {
 
+    })
+    .catch((response) => {
+
+    })
   },[])
   return (
     <>
@@ -15,12 +21,19 @@ export const BookList = () => {
         <table className="table">
           <thead>
             <tr>
-              <th className="text-center">Numero</th>
-              <th className="text-center">Codigo curso</th>
-              <th className="text-center">Descripcion</th>
-              <th className="text-center">Duracion</th>
-              <th className="text-center">Facilitador</th>
-              <th className="text-center">#</th>
+              <th className="text-center">titulo</th>
+              <th className="text-center">descripcion</th>
+              <th className="text-center">fechaLanzamiento</th>
+              <th className="text-center">cantidadPaginas</th>
+              <th className="text-center">cantidadRestantes</th>
+              <th className="text-center">autorId</th>
+              <th className="text-center">generoId</th>
+              <th className="text-center">precio</th>
+              <th className="text-center">imagen</th>
+              <th className="text-center">pathImagen</th>
+              <th className="text-center">autor</th>
+              <th className="text-center">genero</th>
+              <th className="text-center">comentario</th>
             </tr>
           </thead>
           <tbody>
@@ -28,9 +41,19 @@ export const BookList = () => {
               return(
                 <tr key={element.codigoCurso}>
               <td className="text-center">{1}</td>
-              <td className="text-center">{element.codigoCurso}</td>
+              <td className="text-center">{element.titulo}</td>
               <td className="text-center">{element.descripcion}</td>
-              <td className="text-center">{element.duracion}</td>
+              <td className="text-center">{element.fechaLanzamiento}</td>
+              <td className="text-center">{element.cantidadPaginas}</td>
+              <td className="text-center">{element.cantidadRestantes}</td>
+              <td className="text-center">{element.autorId}</td>
+              <td className="text-center">{element.generoId}</td>
+              <td className="text-center">{element.precio}</td>
+              <td className="text-center">{element.imagen}</td>
+              <td className="text-center">{element.pathImagen}</td>
+              <td className="text-center">{element.autor}</td>
+              <td className="text-center">{element.genero}</td>
+              <td className="text-center">{element.comentario}</td>
 
               <td className="text-center">{`${element.facilitador.nombre} ${element.facilitador.apellido}`}</td>
               <td className="text-center">
