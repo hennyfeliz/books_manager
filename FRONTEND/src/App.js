@@ -1,6 +1,6 @@
 import "./App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
-import { Container, Button } from "react-bootstrap";
+import { Container, Button, Card } from "react-bootstrap";
 import { NavBarComponent } from "./Components/NavBar/NarBarComponent";
 import { FooterComponent } from "./Components/Footer/FooterComponent";
 import { SideBarComponent } from "./Components/SideBar/SideBarComponent";
@@ -22,12 +22,11 @@ function App() {
               <BodyPrincipalComponent />
             </Container>
           </div>
-          <Container>
-            <Button className="mt-5 w-75">Ir al menu</Button>
-          </Container>
         </div>
-        <Container>
-          <PrincipalComponent />
+        <Container className="mt-4">
+          <Card>
+            <PrincipalComponent />
+          </Card>
         </Container>
         <FooterComponent />
       </BrowserRouter>
