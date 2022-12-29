@@ -1,19 +1,23 @@
 import { useEffect, useState } from "react";
 import { Container, Pagination } from "react-bootstrap";
+import axios from "axios";
 
 export const BookList = () => {
 
   const [books, setBooks] = useState([]);
 
   useEffect(() => {
-    axios.get(``)
+    axios.get(`https://localhost:7191/api/books`)
     .then((response) => {
-
+      alert("funciona")
+      console.log(response.data)
     })
     .catch((response) => {
-
+      alert("no funciona")
+      console.log(response.data)
     })
   },[])
+  
   return (
     <>
       <h1>Books list</h1>
