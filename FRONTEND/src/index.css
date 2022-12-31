@@ -11,3 +11,23 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root{
+  --main: #D93636;
+  --secondary: #D93636;
+  --clear: #fff;
+  --card-background: #f2f2f0;
+  --text: #403f37;
+  --container: #BFBFBF
+}
+
+body{
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  background-color: '#403f37';
+}
