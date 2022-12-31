@@ -17,9 +17,6 @@ export const PrincipalComponent = () => {
   return (
     <>
       <Container>
-        <h1>All components</h1>
-      </Container>
-      <Container>
         <Routes>
           <Route path="/books" element={<BookPrincipalComponent />} />
           <Route path="/books/list" element={<BookList />} />

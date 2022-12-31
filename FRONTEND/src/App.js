@@ -24,9 +24,7 @@ function App() {
           </div>
         </div>
         <Container className="mt-4">
-          <Card>
-            <PrincipalComponent />
-          </Card>
+          <PrincipalComponent />
         </Container>
         <FooterComponent />
       </BrowserRouter>

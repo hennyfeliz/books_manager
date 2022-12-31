@@ -7,6 +7,8 @@ import { Element } from "../CardComponent/ElementCard";
 export const BookList = () => {
   const [books, setBooks] = useState([]);
 
+  const element = [{ name: "" }, { name: "" }];
+
   useEffect(() => {
     /*axios.get(`https://localhost:7191/api/books`)
     .then((response) => {
@@ -23,7 +25,9 @@ export const BookList = () => {
   return (
     <>
       <PrincipalCardComponent>
-        <Element />
+        {element.map((element) => {
+          return <Element />;
+        })}
       </PrincipalCardComponent>
     </>
   );
