@@ -3,7 +3,7 @@ import "./Element.css"
 
 
 
-export const Element = () => {
+export const Element = ({titulo, precio}) => {
   return (
     <div className="product m-4">
       <img
@@ -11,10 +11,10 @@ export const Element = () => {
         alt="products"
         className="product_img"
       />
-      <h2 className="product_name">Product</h2>
+      <h2 className="product_name">{titulo}</h2>
       <div className="product_details">
-        <p className="product_oldprice">300</p>
-        <p className="product_newprice">180</p>
+        {/* <p className="product_oldprice">300</p> */}
+        <p className="product_newprice">${precio} US</p>
         <Button />
       </div>
     </div>
