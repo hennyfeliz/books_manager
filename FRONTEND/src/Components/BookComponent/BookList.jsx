@@ -3,6 +3,7 @@ import { Container, Pagination } from "react-bootstrap";
 import axios from "axios";
 import { PrincipalCardComponent } from "../CardComponent/PrincipalCardComponent";
 import { Element } from "../CardComponent/ElementCard";
+import "./BooksStyles.css"
 
 export const BookList = () => {
   const [books, setBooks] = useState([]);
@@ -25,9 +26,11 @@ export const BookList = () => {
   return (
     <>
       <PrincipalCardComponent>
-        {element.map((element) => {
-          return <Element />;
-        })}
+        <div className="element_styles">
+          {element.map((element) => {
+            return <Element />;
+          })}
+        </div>
       </PrincipalCardComponent>
     </>
   );

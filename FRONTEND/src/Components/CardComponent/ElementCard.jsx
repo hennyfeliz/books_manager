@@ -5,7 +5,7 @@ import "./Element.css"
 
 export const Element = () => {
   return (
-    <div className="product d-g-3">
+    <div className="product m-4">
       <img
         src="https://picsum.photos/180"
         alt="products"

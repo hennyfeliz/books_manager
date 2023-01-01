@@ -1,4 +1,4 @@
-import "./CardStyles.css"
+import "./CardStyles.css";
 
 export const PrincipalCardComponent = (props) => {
   return (
