@@ -1,17 +1,25 @@
 
 export const sideBarElements = [
   {
-    text: "books"
+    text: "books",
+    route: "/books"
   },
   {
-    text: "authors"
+    text: "authors",
+    route: "/authors"
   },
   {
-    text: "genders"
+    text: "genders",
+    route: "/genders"
   },
   {
-    text: "comments"
+    text: "comments",
+    route: "/comments"
   },
+  {
+    text: "user",
+    route: "/user"
+  }
 ]
 
 

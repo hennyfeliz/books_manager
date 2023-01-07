@@ -12,6 +12,7 @@ import { AuthorUpdate } from "../AuthorComponent/AuthorUpdate.jsx";
 import { BookList } from "../BookComponent/BookList.jsx";
 import { BookCreate } from "../BookComponent/BookCreate.jsx";
 import { BookUpdate } from "../BookComponent/BookUpdate";
+import { UserPrincipalComponent } from "../UserComponent/UserPrincipalComponent.jsx";
 
 export const PrincipalComponent = () => {
   return (
@@ -30,6 +31,7 @@ export const PrincipalComponent = () => {
           <Route path="/genders/list" element={<GenderList />} />
           <Route path="/genders/update" element={<GenderUpdate />} />
           <Route path="/genders/create" element={<GenderCreate />} />
+          <Route path="/user" element={<UserPrincipalComponent />} />
         </Routes>
       </Container>
     </>

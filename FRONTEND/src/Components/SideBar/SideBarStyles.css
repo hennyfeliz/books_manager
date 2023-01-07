@@ -10,6 +10,34 @@ body {
 .book-icon{
   color: red;
   height: 6.0em;
+  margin-left: 40px;
+}
+
+.user-icon{
+  width: 2.5em;
+}
+
+.user-text{
+  font-family: Cascadia Code;
+  margin: auto;
+}
+
+.user-div{
+  display: flex;
+  padding: 6px;
+}
+
+.user-border{
+  margin-top: 450px;
+  margin-left: 10px;
+  margin-right: 5px;
+  border: 1px solid;
+  -moz-border-radius: 7px;
+  -webkit-border-radius: 7px;
+}
+
+.user-border:hover{
+  background-color: cornsilk;
 }
 
 /* Sidebar */
@@ -22,6 +50,8 @@ body {
   padding: 58px 0 0; /* Height of navbar */
   box-shadow: 0 2px 5px 0 rgb(0 0 0 / 5%), 0 2px 10px 0 rgb(0 0 0 / 5%);
   width: 240px;
+  height: 930px;
+  border: 1px solid;
   z-index: 600;
 }
 
